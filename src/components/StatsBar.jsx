@@ -1,9 +1,7 @@
 import { SIGNAL_COLORS, SIGNAL_LABELS } from '../constants/signals.js';
+import { getModeLabel, getOrientationLabel } from '../services/trafficLightLabelService.js';
 
-function StatsBar({ clickCounts, totalClicks, currentSignal, orientation, onOrientationToggle }) {
-  const orientationLabel =
-    orientation === 'vertical' ? 'Вертикальна орієнтація' : 'Горизонтальна орієнтація';
-
+function StatsBar({ clickCounts, totalClicks, currentSignal, orientation, isAutomatic }) {
   return (
     <section className="stats-bar">
       <h2>Статистика</h2>
@@ -18,11 +16,8 @@ function StatsBar({ clickCounts, totalClicks, currentSignal, orientation, onOrie
 
       <p>Усього натискань: {totalClicks}</p>
       <p>Поточний сигнал: {SIGNAL_LABELS[currentSignal]}</p>
-      <p>{orientationLabel}</p>
-
-      <button type="button" onClick={onOrientationToggle}>
-        Змінити орієнтацію
-      </button>
+      <p>{getOrientationLabel(orientation)}</p>
+      <p>Режим: {getModeLabel(isAutomatic)}</p>
     </section>
   );
 }
