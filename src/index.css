@@ -41,17 +41,36 @@ body {
   border: 3px solid #111;
   cursor: pointer;
   opacity: 0.3;
+  transition: opacity 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.light:disabled {
+  cursor: default;
 }
 
 /* box-shadow uses currentColor, which Light sets to the signal color */
 .light--active {
   opacity: 1;
   box-shadow: 0 0 20px 4px currentColor;
+  transform: scale(1.08);
 }
 
 .light:focus-visible {
   outline: 3px solid #4a90e2;
   outline-offset: 3px;
+}
+
+.auto-mode-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.auto-mode-controls p {
+  width: 100%;
+  margin: 0;
 }
 
 .stats-bar {

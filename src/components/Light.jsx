@@ -1,4 +1,4 @@
-function Light({ color, isActive, onSelect }) {
+function Light({ color, isActive, isDisabled, onSelect }) {
   return (
     <button
       type="button"
@@ -6,6 +6,7 @@ function Light({ color, isActive, onSelect }) {
       style={{ backgroundColor: color, color }}
       aria-label={color}
       aria-pressed={isActive}
+      disabled={isDisabled}
       onClick={() => onSelect(color)}
     />
   );
